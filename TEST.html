@@ -1,0 +1,3151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>服务端渲染</title>
+    <link rel="preload" href="/client.bundle.js" as="script">
+    <link rel="preload" href="/0.bundle.js" as="script">
+    <link rel="prefetch" href="/1.bundle.js">
+    <style data-vue-ssr-id="9d415a92:0">
+        .bar[data-v-2aa73eda] {
+            background: bisque;
+        }
+    </style>
+    <style data-vue-ssr-id="184bf450:0">
+        .lequ-ul[data-v-e31e96f8] {
+            padding: 10px 10px 0 10px;
+            box-sizing: border-box;
+            background-color: green;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .lequ-li[data-v-e31e96f8] {
+            background-color: lightyellow;
+            width: 172px;
+            height: 155px;
+            margin-bottom: 10px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .lequ-img[data-v-e31e96f8] {
+            position: relative;
+        }
+
+        .smallVideo-link[data-v-e31e96f8] {
+            height: 97px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .lequ-img .img-link[data-v-e31e96f8] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .lequ-titleRow[data-v-e31e96f8] {
+            height: 64px;
+            padding: 6.5px 2px 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .lequ-title[data-v-e31e96f8] {
+            padding: 0 2px;
+        }
+    </style>
+    <style data-vue-ssr-id="2798e63a:0">
+        .lequ-ul[data-v-7f41c6d0] {
+            padding: 10px 10px 0 10px;
+            box-sizing: border-box;
+            background-color: red;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .lequ-li[data-v-7f41c6d0] {
+            background-color: pink;
+            width: 172px;
+            height: 155px;
+            margin-bottom: 10px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .lequ-img[data-v-7f41c6d0] {
+            position: relative;
+        }
+
+        .smallVideo-link[data-v-7f41c6d0] {
+            height: 97px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .lequ-img .img-link[data-v-7f41c6d0] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .lequ-titleRow[data-v-7f41c6d0] {
+            height: 64px;
+            padding: 6.5px 2px 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .lequ-title[data-v-7f41c6d0] {
+            padding: 0 2px;
+        }
+    </style>
+</head>
+<body>
+<div id="app" data-server-rendered="true"><a href="/bar/1">Goto Bar1</a> <a href="/bar/2"
+                                                                            class="router-link-exact-active router-link-active">Goto
+    Bar2</a> <a href="/foo">Goto Foo</a>
+    <div class="bar" data-v-2aa73eda><h1 data-v-2aa73eda>Bar</h1>
+        <p data-v-2aa73eda>Component</p>
+        <h2 data-v-2aa73eda>异步Ajax数据222：</h2>
+        <button onClick="handleClick" data-v-2aa73eda>按钮</button>
+        <div data-v-2aa73eda>
+            <div data-v-e31e96f8 data-v-2aa73eda><h1 data-v-e31e96f8>组件2</h1>
+                <ul class="lequ-ul" data-v-e31e96f8>
+                    <li class="lequ-li" data-v-e31e96f8>
+                        <div class="lequ-img smallVideo-link " data-v-e31e96f8><a
+                                href="http://www.iqiyi.com/v_10a1zw8nar8.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic8.iqiyipic.com/image/20211023/c0/e2/v_163078525_m_601.jpg);"
+                                data-v-e31e96f8></a></div>
+                        <div class="lequ-titleRow" data-v-e31e96f8>
+                            <div class="lequ-title bigTitleColor" data-v-e31e96f8><a
+                                    href="http://www.iqiyi.com/v_10a1zw8nar8.html" class="bigTitleColor "
+                                    data-v-e31e96f8>洪子洋钟雨芯晒宿舍合照 朱云慧运气不好</a></div>
+                        </div>
+                    </li>
+                    <li class="lequ-li" data-v-e31e96f8>
+                        <div class="lequ-img smallVideo-link " data-v-e31e96f8><a
+                                href="http://www.iqiyi.com/v_rsitgo692o.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic2.iqiyipic.com/image/20211025/21/1e/v_163104024_m_601_m1.jpg);"
+                                data-v-e31e96f8></a></div>
+                        <div class="lequ-titleRow" data-v-e31e96f8>
+                            <div class="lequ-title bigTitleColor" data-v-e31e96f8><a
+                                    href="http://www.iqiyi.com/v_rsitgo692o.html" class="bigTitleColor "
+                                    data-v-e31e96f8>佟丽娅组练舞室大放送 快乐唠嗑笑声不断</a></div>
+                        </div>
+                    </li>
+                    <li class="lequ-li" data-v-e31e96f8>
+                        <div class="lequ-img smallVideo-link " data-v-e31e96f8><a
+                                href="http://www.iqiyi.com/v_23fiz4vqf2k.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic0.iqiyipic.com/image/20211026/d0/16/v_163125809_m_601_m1.jpg);"
+                                data-v-e31e96f8></a></div>
+                        <div class="lequ-titleRow" data-v-e31e96f8>
+                            <div class="lequ-title bigTitleColor" data-v-e31e96f8><a
+                                    href="http://www.iqiyi.com/v_23fiz4vqf2k.html" class="bigTitleColor "
+                                    data-v-e31e96f8>金晨的排练小故事时间 郭嘉语朱嘉倩聊趣事 </a></div>
+                        </div>
+                    </li>
+                    <li class="lequ-li" data-v-e31e96f8>
+                        <div class="lequ-img smallVideo-link " data-v-e31e96f8><a
+                                href="http://www.iqiyi.com/v_1c6usf8f9k8.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic8.iqiyipic.com/image/20211024/c3/cb/v_163090790_m_601_m1.jpg);"
+                                data-v-e31e96f8></a></div>
+                        <div class="lequ-titleRow" data-v-e31e96f8>
+                            <div class="lequ-title bigTitleColor" data-v-e31e96f8><a
+                                    href="http://www.iqiyi.com/v_1c6usf8f9k8.html" class="bigTitleColor "
+                                    data-v-e31e96f8>奖励舞台的雨中趣事 孟美岐想听金晨吹葫芦丝</a></div>
+                        </div>
+                    </li>
+                    <li class="lequ-li" data-v-e31e96f8>
+                        <div class="lequ-img smallVideo-link " data-v-e31e96f8><a
+                                href="http://www.iqiyi.com/v_1f0ekuwn3bw.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic9.iqiyipic.com/image/20211026/4b/b6/v_163125822_m_601_m1.jpg);"
+                                data-v-e31e96f8></a></div>
+                        <div class="lequ-titleRow" data-v-e31e96f8>
+                            <div class="lequ-title bigTitleColor" data-v-e31e96f8><a
+                                    href="http://www.iqiyi.com/v_1f0ekuwn3bw.html" class="bigTitleColor "
+                                    data-v-e31e96f8>金晨组的自信瞬间 劳逸结合下班第一名</a></div>
+                        </div>
+                    </li>
+                    <li class="lequ-li" data-v-e31e96f8>
+                        <div class="lequ-img smallVideo-link " data-v-e31e96f8><a
+                                href="http://www.iqiyi.com/v_pwrcyjccz8.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic9.iqiyipic.com/image/20211023/0c/65/v_163078331_m_601.jpg);"
+                                data-v-e31e96f8></a></div>
+                        <div class="lequ-titleRow" data-v-e31e96f8>
+                            <div class="lequ-title bigTitleColor" data-v-e31e96f8><a
+                                    href="http://www.iqiyi.com/v_pwrcyjccz8.html" class="bigTitleColor "
+                                    data-v-e31e96f8>张琳苑展示土嗨组合影 柳婕说队友很漂亮</a></div>
+                        </div>
+                    </li>
+                    <li class="lequ-li" data-v-e31e96f8>
+                        <div class="lequ-img smallVideo-link " data-v-e31e96f8><a
+                                href="http://www.iqiyi.com/v_1b70mpkskwc.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic8.iqiyipic.com/image/20211023/a8/ca/v_163078736_m_601.jpg);"
+                                data-v-e31e96f8></a></div>
+                        <div class="lequ-titleRow" data-v-e31e96f8>
+                            <div class="lequ-title bigTitleColor" data-v-e31e96f8><a
+                                    href="http://www.iqiyi.com/v_1b70mpkskwc.html" class="bigTitleColor "
+                                    data-v-e31e96f8>栾天奕谈与任路瑶的缘分 任路瑶说自己很幸运</a></div>
+                        </div>
+                    </li>
+                    <li class="lequ-li" data-v-e31e96f8>
+                        <div class="lequ-img smallVideo-link " data-v-e31e96f8><a
+                                href="http://www.iqiyi.com/v_26xia2pxh5g.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic3.iqiyipic.com/image/20211023/5b/31/v_163078582_m_601.jpg);"
+                                data-v-e31e96f8></a></div>
+                        <div class="lequ-titleRow" data-v-e31e96f8>
+                            <div class="lequ-title bigTitleColor" data-v-e31e96f8><a
+                                    href="http://www.iqiyi.com/v_26xia2pxh5g.html" class="bigTitleColor "
+                                    data-v-e31e96f8>徐轸轸回忆金晨送的生日惊喜 相信自己会闪闪发光</a></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-v-2aa73eda>
+            <div data-v-7f41c6d0 data-v-2aa73eda><h1 data-v-7f41c6d0>组件1</h1>
+                <ul class="lequ-ul" data-v-7f41c6d0>
+                    <li class="lequ-li" data-v-7f41c6d0>
+                        <div class="lequ-img smallVideo-link " data-v-7f41c6d0><a
+                                href="http://www.iqiyi.com/v_10a1zw8nar8.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic8.iqiyipic.com/image/20211023/c0/e2/v_163078525_m_601.jpg);"
+                                data-v-7f41c6d0></a></div>
+                        <div class="lequ-titleRow" data-v-7f41c6d0>
+                            <div class="lequ-title bigTitleColor" data-v-7f41c6d0><a
+                                    href="http://www.iqiyi.com/v_10a1zw8nar8.html" class="bigTitleColor "
+                                    data-v-7f41c6d0>洪子洋钟雨芯晒宿舍合照 朱云慧运气不好</a></div>
+                        </div>
+                    </li>
+                    <li class="lequ-li" data-v-7f41c6d0>
+                        <div class="lequ-img smallVideo-link " data-v-7f41c6d0><a
+                                href="http://www.iqiyi.com/v_rsitgo692o.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic2.iqiyipic.com/image/20211025/21/1e/v_163104024_m_601_m1.jpg);"
+                                data-v-7f41c6d0></a></div>
+                        <div class="lequ-titleRow" data-v-7f41c6d0>
+                            <div class="lequ-title bigTitleColor" data-v-7f41c6d0><a
+                                    href="http://www.iqiyi.com/v_rsitgo692o.html" class="bigTitleColor "
+                                    data-v-7f41c6d0>佟丽娅组练舞室大放送 快乐唠嗑笑声不断</a></div>
+                        </div>
+                    </li>
+                    <li class="lequ-li" data-v-7f41c6d0>
+                        <div class="lequ-img smallVideo-link " data-v-7f41c6d0><a
+                                href="http://www.iqiyi.com/v_23fiz4vqf2k.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic0.iqiyipic.com/image/20211026/d0/16/v_163125809_m_601_m1.jpg);"
+                                data-v-7f41c6d0></a></div>
+                        <div class="lequ-titleRow" data-v-7f41c6d0>
+                            <div class="lequ-title bigTitleColor" data-v-7f41c6d0><a
+                                    href="http://www.iqiyi.com/v_23fiz4vqf2k.html" class="bigTitleColor "
+                                    data-v-7f41c6d0>金晨的排练小故事时间 郭嘉语朱嘉倩聊趣事 </a></div>
+                        </div>
+                    </li>
+                    <li class="lequ-li" data-v-7f41c6d0>
+                        <div class="lequ-img smallVideo-link " data-v-7f41c6d0><a
+                                href="http://www.iqiyi.com/v_1c6usf8f9k8.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic8.iqiyipic.com/image/20211024/c3/cb/v_163090790_m_601_m1.jpg);"
+                                data-v-7f41c6d0></a></div>
+                        <div class="lequ-titleRow" data-v-7f41c6d0>
+                            <div class="lequ-title bigTitleColor" data-v-7f41c6d0><a
+                                    href="http://www.iqiyi.com/v_1c6usf8f9k8.html" class="bigTitleColor "
+                                    data-v-7f41c6d0>奖励舞台的雨中趣事 孟美岐想听金晨吹葫芦丝</a></div>
+                        </div>
+                    </li>
+                    <li class="lequ-li" data-v-7f41c6d0>
+                        <div class="lequ-img smallVideo-link " data-v-7f41c6d0><a
+                                href="http://www.iqiyi.com/v_1f0ekuwn3bw.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic9.iqiyipic.com/image/20211026/4b/b6/v_163125822_m_601_m1.jpg);"
+                                data-v-7f41c6d0></a></div>
+                        <div class="lequ-titleRow" data-v-7f41c6d0>
+                            <div class="lequ-title bigTitleColor" data-v-7f41c6d0><a
+                                    href="http://www.iqiyi.com/v_1f0ekuwn3bw.html" class="bigTitleColor "
+                                    data-v-7f41c6d0>金晨组的自信瞬间 劳逸结合下班第一名</a></div>
+                        </div>
+                    </li>
+                    <li class="lequ-li" data-v-7f41c6d0>
+                        <div class="lequ-img smallVideo-link " data-v-7f41c6d0><a
+                                href="http://www.iqiyi.com/v_pwrcyjccz8.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic9.iqiyipic.com/image/20211023/0c/65/v_163078331_m_601.jpg);"
+                                data-v-7f41c6d0></a></div>
+                        <div class="lequ-titleRow" data-v-7f41c6d0>
+                            <div class="lequ-title bigTitleColor" data-v-7f41c6d0><a
+                                    href="http://www.iqiyi.com/v_pwrcyjccz8.html" class="bigTitleColor "
+                                    data-v-7f41c6d0>张琳苑展示土嗨组合影 柳婕说队友很漂亮</a></div>
+                        </div>
+                    </li>
+                    <li class="lequ-li" data-v-7f41c6d0>
+                        <div class="lequ-img smallVideo-link " data-v-7f41c6d0><a
+                                href="http://www.iqiyi.com/v_1b70mpkskwc.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic8.iqiyipic.com/image/20211023/a8/ca/v_163078736_m_601.jpg);"
+                                data-v-7f41c6d0></a></div>
+                        <div class="lequ-titleRow" data-v-7f41c6d0>
+                            <div class="lequ-title bigTitleColor" data-v-7f41c6d0><a
+                                    href="http://www.iqiyi.com/v_1b70mpkskwc.html" class="bigTitleColor "
+                                    data-v-7f41c6d0>栾天奕谈与任路瑶的缘分 任路瑶说自己很幸运</a></div>
+                        </div>
+                    </li>
+                    <li class="lequ-li" data-v-7f41c6d0>
+                        <div class="lequ-img smallVideo-link " data-v-7f41c6d0><a
+                                href="http://www.iqiyi.com/v_26xia2pxh5g.html" class="img-link smallTitleColor"
+                                style="background-image:url(http://pic3.iqiyipic.com/image/20211023/5b/31/v_163078582_m_601.jpg);"
+                                data-v-7f41c6d0></a></div>
+                        <div class="lequ-titleRow" data-v-7f41c6d0>
+                            <div class="lequ-title bigTitleColor" data-v-7f41c6d0><a
+                                    href="http://www.iqiyi.com/v_26xia2pxh5g.html" class="bigTitleColor "
+                                    data-v-7f41c6d0>徐轸轸回忆金晨送的生日惊喜 相信自己会闪闪发光</a></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>window.__INITIAL_STATE__ = {
+  "bar": "", "cards": [{
+    "id": 2, "relationId": 3, "customData": {"rId": "44243672312"}, "reqIndex": 0, "sourceData": [{
+      "name": "幕后：洪子洋钟雨芯晒宿舍合照 朱云慧运气不好",
+      "description": "幕后：洪子洋钟雨芯晒宿舍合照 朱云慧运气不好",
+      "tvId": 3767472175507800,
+      "vid": "e162a09db00db0b62aeacf1f2b489254",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_10a1zw8nar8.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 76,
+      "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211023\u002Fc0\u002Fe2\u002Fv_163078525_m_601.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211023\u002Fc0\u002Fe2\u002Fv_163078525_m_601.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211023\u002Fc0\u002Fe2\u002Fv_163078525_m_601.webp",
+      "firstPublishTime": 1634964608000,
+      "lastPublishTime": 1634981350000,
+      "channelId": 6,
+      "subtitle": "洪子洋钟雨芯晒宿舍合照 朱云慧运气不好",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "洪子洋晒宿舍合照",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "洪子洋钟雨芯晒宿舍合照",
+      "contentType": 5,
+      "episodeType": 0,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 2,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 3,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 10,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 18, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "2224,33860,30279,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Emotion_友情", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_Age_33147", "TagId_Common_Category_SubjectMatter_33172", "Tag_Common_Category_Style_甜", "Tag_Pps_region_中国_22607", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Place_151", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Common_Category_Style_励志", "TagId_Common_Category_Specification_33310", "Tag_Common_Tag_洪子洋", "TagId_Common_Category_SubjectMatter_33176", "Tag_Common_Category_Age_19-24岁", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Emotion_师生关系", "TagId_Common_Category_Character_33300", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "TagId_Common_Category_Language_20121", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_PersonType_舞者", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Tag_未播", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "TagId_Common_Category_Emotion_33250", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Type_30279", "TagId_Common_Category_ContentSubType_33845", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Type_竞演", "Tag_Common_Category_ContentSubType_未播", "Tag_Common_Category_Character_萝莉", "Tag_Common_Category_PersonType_演员", "Tag_Common_Category_Type_真人秀", "Tag_Common_Category_Character_御姐"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 53
+    }, {
+      "name": "幕后：佟丽娅组练舞室大放送 快乐唠嗑笑声不断",
+      "description": "幕后：佟丽娅组练舞室大放送 快乐唠嗑笑声不断",
+      "tvId": 2940439186537500,
+      "vid": "8905f5866e6616c8f6b3ed8dbeb963af",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_rsitgo692o.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 101,
+      "imageUrl": "http:\u002F\u002Fpic2.iqiyipic.com\u002Fimage\u002F20211025\u002F21\u002F1e\u002Fv_163104024_m_601_m1.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic2.iqiyipic.com\u002Fimage\u002F20211025\u002F21\u002F1e\u002Fv_163104024_m_601_m1.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic2.iqiyipic.com\u002Fimage\u002F20211025\u002F21\u002F1e\u002Fv_163104024_m_601_m1.webp",
+      "firstPublishTime": 1635144906000,
+      "lastPublishTime": 1635215632000,
+      "channelId": 6,
+      "subtitle": "佟丽娅组练舞室大放送 快乐唠嗑笑声不断",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "佟丽娅组练舞室大放送",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "佟丽娅组练舞室大放送",
+      "contentType": 5,
+      "episodeType": 2,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "舞蹈生",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "王燕国 AE001",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 2,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 18,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 10,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 3, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "2224,33860,30279,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "Tag_Common_Category_Emotion_友情", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_Age_33147", "TagId_Common_Category_SubjectMatter_33172", "Tag_Pps_region_中国_22607", "Tag_Common_Category_Style_甜", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Place_151", "Tag_Common_Tag_佟丽娅", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Common_Category_Style_励志", "TagId_Common_Category_Specification_33310", "TagId_Common_Category_SubjectMatter_33176", "Tag_Common_Category_Age_19-24岁", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Emotion_师生关系", "TagId_Common_Category_Character_33300", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "TagId_Common_Category_Language_20121", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_PersonType_舞者", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Tag_未播", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "TagId_Common_Category_Emotion_33250", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Type_30279", "TagId_Common_Category_ContentSubType_33845", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Type_竞演", "Tag_Common_Category_ContentSubType_未播", "Tag_Common_Category_Character_萝莉", "Tag_Common_Category_PersonType_演员", "Tag_Common_Category_Type_真人秀", "Tag_Common_Category_Character_御姐"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 99090407353
+    }, {
+      "name": "幕后：金晨的排练小故事时间 郭嘉语朱嘉倩聊趣事 ",
+      "description": "幕后：金晨的排练小故事时间 郭嘉语朱嘉倩聊趣事 ",
+      "tvId": 7672415522122400,
+      "vid": "a79082bc0641b3c716b57e60cffb342f",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_23fiz4vqf2k.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 108,
+      "imageUrl": "http:\u002F\u002Fpic0.iqiyipic.com\u002Fimage\u002F20211026\u002Fd0\u002F16\u002Fv_163125809_m_601_m1.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic0.iqiyipic.com\u002Fimage\u002F20211026\u002Fd0\u002F16\u002Fv_163125809_m_601_m1.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic0.iqiyipic.com\u002Fimage\u002F20211026\u002Fd0\u002F16\u002Fv_163125809_m_601_m1.webp",
+      "firstPublishTime": 1635231306000,
+      "lastPublishTime": 1635318902000,
+      "channelId": 6,
+      "subtitle": "金晨的排练小故事时间 郭嘉语朱嘉倩聊趣事 ",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "金晨的排练小故事时间",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "金晨的排练小故事时间 ",
+      "contentType": 5,
+      "episodeType": 2,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "舞蹈生",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "王燕国 AE001",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 2,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 10,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 18,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 3, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "2224,33860,30279,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "Tag_Common_Category_Emotion_友情", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_SubjectMatter_33172", "TagId_Common_Category_Age_33147", "Tag_Pps_region_中国_22607", "Tag_Common_Category_Style_甜", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Place_151", "Tag_Common_Tag_金晨", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Common_Category_Style_励志", "TagId_Common_Category_Specification_33310", "Tag_Common_Category_Age_19-24岁", "TagId_Common_Category_SubjectMatter_33176", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Emotion_师生关系", "TagId_Common_Category_Character_33300", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "TagId_Common_Category_Language_20121", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_PersonType_舞者", "Tag_Common_Tag_幕后", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "TagId_Common_Category_Emotion_33250", "Tag_Common_Category_ContentSubType_幕后", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Type_30279", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Type_竞演", "TagId_Common_Category_ContentSubType_33851", "Tag_Common_Category_Character_萝莉", "Tag_Common_Category_PersonType_演员", "Tag_Common_Category_Type_真人秀", "Tag_Common_Category_Character_御姐"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 99090407353
+    }, {
+      "name": "幕后：奖励舞台的雨中趣事 孟美岐想听金晨吹葫芦丝",
+      "description": "幕后：奖励舞台的雨中趣事 孟美岐想听金晨吹葫芦丝",
+      "tvId": 4809485611672900,
+      "vid": "fbd63558afa4250b15af8c0ffa2359a6",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_1c6usf8f9k8.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 150,
+      "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211024\u002Fc3\u002Fcb\u002Fv_163090790_m_601_m1.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211024\u002Fc3\u002Fcb\u002Fv_163090790_m_601_m1.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211024\u002Fc3\u002Fcb\u002Fv_163090790_m_601_m1.webp",
+      "firstPublishTime": 1635058506000,
+      "lastPublishTime": 1635153720000,
+      "channelId": 6,
+      "subtitle": "奖励舞台的雨中趣事 孟美岐想听金晨吹葫芦丝",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "奖励舞台的雨中趣事",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "奖励舞台的雨中趣事",
+      "contentType": 5,
+      "episodeType": 2,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "舞蹈生",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "王燕国 AE001",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 3,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 18,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 10,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 2, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "2224,33860,30279,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "Tag_Common_Category_Emotion_友情", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_Age_33147", "TagId_Common_Category_SubjectMatter_33172", "Tag_Pps_region_中国_22607", "Tag_Common_Category_Style_甜", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Place_151", "Tag_Common_Tag_金晨", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Common_Category_Style_励志", "TagId_Common_Category_Specification_33310", "Tag_Common_Category_Age_19-24岁", "TagId_Common_Category_SubjectMatter_33176", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Emotion_师生关系", "TagId_Common_Category_Character_33300", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "TagId_Common_Category_Language_20121", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_PersonType_舞者", "Tag_Common_Tag_幕后", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "TagId_Common_Category_Emotion_33250", "Tag_Common_Category_ContentSubType_幕后", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Type_30279", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Type_竞演", "TagId_Common_Category_ContentSubType_33851", "Tag_Common_Category_Character_萝莉", "Tag_Common_Category_PersonType_演员", "Tag_Common_Category_Type_真人秀", "Tag_Common_Category_Character_御姐"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 99090407353
+    }, {
+      "name": "幕后：金晨组的自信瞬间 劳逸结合下班第一名",
+      "description": "幕后：金晨组的自信瞬间 劳逸结合下班第一名",
+      "tvId": 5087034994978800,
+      "vid": "234bd06869910991fe01d340db6eef6d",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_1f0ekuwn3bw.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 87,
+      "imageUrl": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fimage\u002F20211026\u002F4b\u002Fb6\u002Fv_163125822_m_601_m1.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fimage\u002F20211026\u002F4b\u002Fb6\u002Fv_163125822_m_601_m1.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fimage\u002F20211026\u002F4b\u002Fb6\u002Fv_163125822_m_601_m1.webp",
+      "firstPublishTime": 1635234906000,
+      "lastPublishTime": 1635319345000,
+      "channelId": 6,
+      "subtitle": "金晨组的自信瞬间 劳逸结合下班第一名",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "金晨组劳逸结合",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "金晨组的自信瞬间",
+      "contentType": 5,
+      "episodeType": 2,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "舞蹈生",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "王燕国 AE001",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 3,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 2,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 10,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 18, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "2224,33860,30279,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "Tag_Common_Category_Emotion_友情", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_SubjectMatter_33172", "TagId_Common_Category_Age_33147", "Tag_Pps_region_中国_22607", "Tag_Common_Category_Style_甜", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Place_151", "Tag_Common_Tag_金晨", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Common_Category_Style_励志", "TagId_Common_Category_Specification_33310", "Tag_Common_Category_Age_19-24岁", "TagId_Common_Category_SubjectMatter_33176", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Emotion_师生关系", "TagId_Common_Category_Character_33300", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "TagId_Common_Category_Language_20121", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_PersonType_舞者", "Tag_Common_Tag_幕后", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "TagId_Common_Category_Emotion_33250", "Tag_Common_Category_ContentSubType_幕后", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Type_30279", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Type_竞演", "TagId_Common_Category_ContentSubType_33851", "Tag_Common_Category_Character_萝莉", "Tag_Common_Category_PersonType_演员", "Tag_Common_Category_Type_真人秀", "Tag_Common_Category_Character_御姐"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 99090407353
+    }, {
+      "name": "幕后：张琳苑展示土嗨组合影 柳婕说队友很漂亮",
+      "description": "幕后：张琳苑展示土嗨组合影 柳婕说队友很漂亮",
+      "tvId": 2581871052611800,
+      "vid": "c765ab6fc55a1651adf47a1befa47d98",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_pwrcyjccz8.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 62,
+      "imageUrl": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fimage\u002F20211023\u002F0c\u002F65\u002Fv_163078331_m_601.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fimage\u002F20211023\u002F0c\u002F65\u002Fv_163078331_m_601.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fimage\u002F20211023\u002F0c\u002F65\u002Fv_163078331_m_601.webp",
+      "firstPublishTime": 1634964606000,
+      "lastPublishTime": 1634981380000,
+      "channelId": 6,
+      "subtitle": "张琳苑展示土嗨组合影 柳婕说队友很漂亮",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "张琳苑展示土嗨组合影",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "张琳苑展示土嗨组合影",
+      "contentType": 5,
+      "episodeType": 0,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 3,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 2,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 10,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 18, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "2224,33860,30279,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Emotion_友情", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_Age_33147", "TagId_Common_Category_SubjectMatter_33172", "Tag_Common_Category_Style_甜", "Tag_Pps_region_中国_22607", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Place_151", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Common_Category_Style_励志", "TagId_Common_Category_Specification_33310", "TagId_Common_Category_SubjectMatter_33176", "Tag_Common_Category_Age_19-24岁", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Emotion_师生关系", "TagId_Common_Category_Character_33300", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "TagId_Common_Category_Language_20121", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_PersonType_舞者", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Tag_未播", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "Tag_Common_Tag_张琳苑", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "TagId_Common_Category_Emotion_33250", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Type_30279", "TagId_Common_Category_ContentSubType_33845", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Type_竞演", "Tag_Common_Category_ContentSubType_未播", "Tag_Common_Category_Character_萝莉", "Tag_Common_Category_PersonType_演员", "Tag_Common_Category_Type_真人秀", "Tag_Common_Category_Character_御姐"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 53
+    }, {
+      "name": "幕后：栾天奕谈与任路瑶的缘分 任路瑶说自己很幸运",
+      "description": "幕后：栾天奕谈与任路瑶的缘分 任路瑶说自己很幸运",
+      "tvId": 4910558508496800,
+      "vid": "7343e70cb3cb83883638eacfc9fd9e76",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_1b70mpkskwc.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 84,
+      "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211023\u002Fa8\u002Fca\u002Fv_163078736_m_601.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211023\u002Fa8\u002Fca\u002Fv_163078736_m_601.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211023\u002Fa8\u002Fca\u002Fv_163078736_m_601.webp",
+      "firstPublishTime": 1634964613000,
+      "lastPublishTime": 1634981383000,
+      "channelId": 6,
+      "subtitle": "栾天奕谈与任路瑶的缘分 任路瑶说自己很幸运",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "栾天奕与任路瑶的缘分",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "栾天奕谈与任路瑶的缘分",
+      "contentType": 5,
+      "episodeType": 0,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 18,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 2,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 3,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 10, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "33860,30279,2224,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "Tag_Common_Category_Emotion_友情", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_SubjectMatter_33172", "TagId_Common_Category_Age_33147", "Tag_Pps_region_中国_22607", "Tag_Common_Category_Style_甜", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Place_151", "TagId_Common_Category_Type_30279", "TagId_Common_Category_ContentSubType_33845", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Style_励志", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Specification_33310", "Tag_Common_Category_Age_19-24岁", "TagId_Common_Category_SubjectMatter_33176", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Emotion_师生关系", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33300", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "Tag_Common_Category_Type_竞演", "TagId_Common_Category_Language_20121", "Tag_Common_Tag_栾天奕", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_ContentSubType_未播", "Tag_Common_Category_PersonType_舞者", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_Character_萝莉", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Category_PersonType_演员", "Tag_Common_Tag_未播", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "Tag_Common_Category_Type_真人秀", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "Tag_Common_Category_Character_御姐", "TagId_Common_Category_Emotion_33250"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 53
+    }, {
+      "name": "幕后：徐轸轸回忆金晨送的生日惊喜 相信自己会闪闪发光",
+      "description": "幕后：徐轸轸回忆金晨送的生日惊喜 相信自己会闪闪发光",
+      "tvId": 7898626291175800,
+      "vid": "11cb0d77a97626cffc01a456abb7365f",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_26xia2pxh5g.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 68,
+      "imageUrl": "http:\u002F\u002Fpic3.iqiyipic.com\u002Fimage\u002F20211023\u002F5b\u002F31\u002Fv_163078582_m_601.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic3.iqiyipic.com\u002Fimage\u002F20211023\u002F5b\u002F31\u002Fv_163078582_m_601.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic3.iqiyipic.com\u002Fimage\u002F20211023\u002F5b\u002F31\u002Fv_163078582_m_601.webp",
+      "firstPublishTime": 1634964605000,
+      "lastPublishTime": 1634981348000,
+      "channelId": 6,
+      "subtitle": "徐轸轸回忆金晨送的生日惊喜 相信自己会闪闪发光",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "徐轸轸回忆金晨送惊喜",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "徐轸轸回忆金晨送的生日惊喜",
+      "contentType": 5,
+      "episodeType": 0,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 10,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 3,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 2,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 18, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "2224,33860,30279,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Emotion_友情", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_Age_33147", "TagId_Common_Category_SubjectMatter_33172", "Tag_Common_Category_Style_甜", "Tag_Pps_region_中国_22607", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Place_151", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Common_Category_Style_励志", "TagId_Common_Category_Specification_33310", "TagId_Common_Category_SubjectMatter_33176", "Tag_Common_Category_Age_19-24岁", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Emotion_师生关系", "TagId_Common_Category_Character_33300", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "TagId_Common_Category_Language_20121", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_PersonType_舞者", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Tag_未播", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "TagId_Common_Category_Emotion_33250", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Type_30279", "TagId_Common_Category_ContentSubType_33845", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Type_竞演", "Tag_Common_Category_ContentSubType_未播", "Tag_Common_Category_Character_萝莉", "Tag_Common_Tag_徐轸轸", "Tag_Common_Category_PersonType_演员", "Tag_Common_Category_Type_真人秀", "Tag_Common_Category_Character_御姐"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 53
+    }]
+  }, {
+    "id": 1, "relationId": 4, "customData": {"rId": "44243672312"}, "reqIndex": 1, "sourceData": [{
+      "name": "幕后：洪子洋钟雨芯晒宿舍合照 朱云慧运气不好",
+      "description": "幕后：洪子洋钟雨芯晒宿舍合照 朱云慧运气不好",
+      "tvId": 3767472175507800,
+      "vid": "e162a09db00db0b62aeacf1f2b489254",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_10a1zw8nar8.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 76,
+      "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211023\u002Fc0\u002Fe2\u002Fv_163078525_m_601.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211023\u002Fc0\u002Fe2\u002Fv_163078525_m_601.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211023\u002Fc0\u002Fe2\u002Fv_163078525_m_601.webp",
+      "firstPublishTime": 1634964608000,
+      "lastPublishTime": 1634981350000,
+      "channelId": 6,
+      "subtitle": "洪子洋钟雨芯晒宿舍合照 朱云慧运气不好",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "洪子洋晒宿舍合照",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "洪子洋钟雨芯晒宿舍合照",
+      "contentType": 5,
+      "episodeType": 0,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 2,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 3,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 10,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 18, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "2224,33860,30279,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Emotion_友情", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_Age_33147", "TagId_Common_Category_SubjectMatter_33172", "Tag_Common_Category_Style_甜", "Tag_Pps_region_中国_22607", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Place_151", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Common_Category_Style_励志", "TagId_Common_Category_Specification_33310", "Tag_Common_Tag_洪子洋", "TagId_Common_Category_SubjectMatter_33176", "Tag_Common_Category_Age_19-24岁", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Emotion_师生关系", "TagId_Common_Category_Character_33300", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "TagId_Common_Category_Language_20121", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_PersonType_舞者", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Tag_未播", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "TagId_Common_Category_Emotion_33250", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Type_30279", "TagId_Common_Category_ContentSubType_33845", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Type_竞演", "Tag_Common_Category_ContentSubType_未播", "Tag_Common_Category_Character_萝莉", "Tag_Common_Category_PersonType_演员", "Tag_Common_Category_Type_真人秀", "Tag_Common_Category_Character_御姐"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 53
+    }, {
+      "name": "幕后：佟丽娅组练舞室大放送 快乐唠嗑笑声不断",
+      "description": "幕后：佟丽娅组练舞室大放送 快乐唠嗑笑声不断",
+      "tvId": 2940439186537500,
+      "vid": "8905f5866e6616c8f6b3ed8dbeb963af",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_rsitgo692o.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 101,
+      "imageUrl": "http:\u002F\u002Fpic2.iqiyipic.com\u002Fimage\u002F20211025\u002F21\u002F1e\u002Fv_163104024_m_601_m1.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic2.iqiyipic.com\u002Fimage\u002F20211025\u002F21\u002F1e\u002Fv_163104024_m_601_m1.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic2.iqiyipic.com\u002Fimage\u002F20211025\u002F21\u002F1e\u002Fv_163104024_m_601_m1.webp",
+      "firstPublishTime": 1635144906000,
+      "lastPublishTime": 1635215632000,
+      "channelId": 6,
+      "subtitle": "佟丽娅组练舞室大放送 快乐唠嗑笑声不断",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "佟丽娅组练舞室大放送",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "佟丽娅组练舞室大放送",
+      "contentType": 5,
+      "episodeType": 2,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "舞蹈生",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "王燕国 AE001",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 2,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 18,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 10,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 3, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "2224,33860,30279,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "Tag_Common_Category_Emotion_友情", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_Age_33147", "TagId_Common_Category_SubjectMatter_33172", "Tag_Pps_region_中国_22607", "Tag_Common_Category_Style_甜", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Place_151", "Tag_Common_Tag_佟丽娅", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Common_Category_Style_励志", "TagId_Common_Category_Specification_33310", "TagId_Common_Category_SubjectMatter_33176", "Tag_Common_Category_Age_19-24岁", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Emotion_师生关系", "TagId_Common_Category_Character_33300", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "TagId_Common_Category_Language_20121", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_PersonType_舞者", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Tag_未播", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "TagId_Common_Category_Emotion_33250", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Type_30279", "TagId_Common_Category_ContentSubType_33845", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Type_竞演", "Tag_Common_Category_ContentSubType_未播", "Tag_Common_Category_Character_萝莉", "Tag_Common_Category_PersonType_演员", "Tag_Common_Category_Type_真人秀", "Tag_Common_Category_Character_御姐"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 99090407353
+    }, {
+      "name": "幕后：金晨的排练小故事时间 郭嘉语朱嘉倩聊趣事 ",
+      "description": "幕后：金晨的排练小故事时间 郭嘉语朱嘉倩聊趣事 ",
+      "tvId": 7672415522122400,
+      "vid": "a79082bc0641b3c716b57e60cffb342f",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_23fiz4vqf2k.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 108,
+      "imageUrl": "http:\u002F\u002Fpic0.iqiyipic.com\u002Fimage\u002F20211026\u002Fd0\u002F16\u002Fv_163125809_m_601_m1.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic0.iqiyipic.com\u002Fimage\u002F20211026\u002Fd0\u002F16\u002Fv_163125809_m_601_m1.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic0.iqiyipic.com\u002Fimage\u002F20211026\u002Fd0\u002F16\u002Fv_163125809_m_601_m1.webp",
+      "firstPublishTime": 1635231306000,
+      "lastPublishTime": 1635318902000,
+      "channelId": 6,
+      "subtitle": "金晨的排练小故事时间 郭嘉语朱嘉倩聊趣事 ",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "金晨的排练小故事时间",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "金晨的排练小故事时间 ",
+      "contentType": 5,
+      "episodeType": 2,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "舞蹈生",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "王燕国 AE001",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 2,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 10,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 18,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 3, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "2224,33860,30279,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "Tag_Common_Category_Emotion_友情", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_SubjectMatter_33172", "TagId_Common_Category_Age_33147", "Tag_Pps_region_中国_22607", "Tag_Common_Category_Style_甜", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Place_151", "Tag_Common_Tag_金晨", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Common_Category_Style_励志", "TagId_Common_Category_Specification_33310", "Tag_Common_Category_Age_19-24岁", "TagId_Common_Category_SubjectMatter_33176", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Emotion_师生关系", "TagId_Common_Category_Character_33300", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "TagId_Common_Category_Language_20121", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_PersonType_舞者", "Tag_Common_Tag_幕后", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "TagId_Common_Category_Emotion_33250", "Tag_Common_Category_ContentSubType_幕后", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Type_30279", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Type_竞演", "TagId_Common_Category_ContentSubType_33851", "Tag_Common_Category_Character_萝莉", "Tag_Common_Category_PersonType_演员", "Tag_Common_Category_Type_真人秀", "Tag_Common_Category_Character_御姐"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 99090407353
+    }, {
+      "name": "幕后：奖励舞台的雨中趣事 孟美岐想听金晨吹葫芦丝",
+      "description": "幕后：奖励舞台的雨中趣事 孟美岐想听金晨吹葫芦丝",
+      "tvId": 4809485611672900,
+      "vid": "fbd63558afa4250b15af8c0ffa2359a6",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_1c6usf8f9k8.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 150,
+      "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211024\u002Fc3\u002Fcb\u002Fv_163090790_m_601_m1.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211024\u002Fc3\u002Fcb\u002Fv_163090790_m_601_m1.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211024\u002Fc3\u002Fcb\u002Fv_163090790_m_601_m1.webp",
+      "firstPublishTime": 1635058506000,
+      "lastPublishTime": 1635153720000,
+      "channelId": 6,
+      "subtitle": "奖励舞台的雨中趣事 孟美岐想听金晨吹葫芦丝",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "奖励舞台的雨中趣事",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "奖励舞台的雨中趣事",
+      "contentType": 5,
+      "episodeType": 2,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "舞蹈生",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "王燕国 AE001",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 3,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 18,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 10,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 2, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "2224,33860,30279,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "Tag_Common_Category_Emotion_友情", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_Age_33147", "TagId_Common_Category_SubjectMatter_33172", "Tag_Pps_region_中国_22607", "Tag_Common_Category_Style_甜", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Place_151", "Tag_Common_Tag_金晨", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Common_Category_Style_励志", "TagId_Common_Category_Specification_33310", "Tag_Common_Category_Age_19-24岁", "TagId_Common_Category_SubjectMatter_33176", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Emotion_师生关系", "TagId_Common_Category_Character_33300", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "TagId_Common_Category_Language_20121", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_PersonType_舞者", "Tag_Common_Tag_幕后", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "TagId_Common_Category_Emotion_33250", "Tag_Common_Category_ContentSubType_幕后", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Type_30279", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Type_竞演", "TagId_Common_Category_ContentSubType_33851", "Tag_Common_Category_Character_萝莉", "Tag_Common_Category_PersonType_演员", "Tag_Common_Category_Type_真人秀", "Tag_Common_Category_Character_御姐"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 99090407353
+    }, {
+      "name": "幕后：金晨组的自信瞬间 劳逸结合下班第一名",
+      "description": "幕后：金晨组的自信瞬间 劳逸结合下班第一名",
+      "tvId": 5087034994978800,
+      "vid": "234bd06869910991fe01d340db6eef6d",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_1f0ekuwn3bw.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 87,
+      "imageUrl": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fimage\u002F20211026\u002F4b\u002Fb6\u002Fv_163125822_m_601_m1.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fimage\u002F20211026\u002F4b\u002Fb6\u002Fv_163125822_m_601_m1.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fimage\u002F20211026\u002F4b\u002Fb6\u002Fv_163125822_m_601_m1.webp",
+      "firstPublishTime": 1635234906000,
+      "lastPublishTime": 1635319345000,
+      "channelId": 6,
+      "subtitle": "金晨组的自信瞬间 劳逸结合下班第一名",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "金晨组劳逸结合",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "金晨组的自信瞬间",
+      "contentType": 5,
+      "episodeType": 2,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "舞蹈生",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "王燕国 AE001",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 3,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 2,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 10,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 18, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "2224,33860,30279,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "Tag_Common_Category_Emotion_友情", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_SubjectMatter_33172", "TagId_Common_Category_Age_33147", "Tag_Pps_region_中国_22607", "Tag_Common_Category_Style_甜", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Place_151", "Tag_Common_Tag_金晨", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Common_Category_Style_励志", "TagId_Common_Category_Specification_33310", "Tag_Common_Category_Age_19-24岁", "TagId_Common_Category_SubjectMatter_33176", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Emotion_师生关系", "TagId_Common_Category_Character_33300", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "TagId_Common_Category_Language_20121", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_PersonType_舞者", "Tag_Common_Tag_幕后", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "TagId_Common_Category_Emotion_33250", "Tag_Common_Category_ContentSubType_幕后", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Type_30279", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Type_竞演", "TagId_Common_Category_ContentSubType_33851", "Tag_Common_Category_Character_萝莉", "Tag_Common_Category_PersonType_演员", "Tag_Common_Category_Type_真人秀", "Tag_Common_Category_Character_御姐"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 99090407353
+    }, {
+      "name": "幕后：张琳苑展示土嗨组合影 柳婕说队友很漂亮",
+      "description": "幕后：张琳苑展示土嗨组合影 柳婕说队友很漂亮",
+      "tvId": 2581871052611800,
+      "vid": "c765ab6fc55a1651adf47a1befa47d98",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_pwrcyjccz8.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 62,
+      "imageUrl": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fimage\u002F20211023\u002F0c\u002F65\u002Fv_163078331_m_601.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fimage\u002F20211023\u002F0c\u002F65\u002Fv_163078331_m_601.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fimage\u002F20211023\u002F0c\u002F65\u002Fv_163078331_m_601.webp",
+      "firstPublishTime": 1634964606000,
+      "lastPublishTime": 1634981380000,
+      "channelId": 6,
+      "subtitle": "张琳苑展示土嗨组合影 柳婕说队友很漂亮",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "张琳苑展示土嗨组合影",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "张琳苑展示土嗨组合影",
+      "contentType": 5,
+      "episodeType": 0,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 3,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 2,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 10,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 18, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "2224,33860,30279,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Emotion_友情", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_Age_33147", "TagId_Common_Category_SubjectMatter_33172", "Tag_Common_Category_Style_甜", "Tag_Pps_region_中国_22607", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Place_151", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Common_Category_Style_励志", "TagId_Common_Category_Specification_33310", "TagId_Common_Category_SubjectMatter_33176", "Tag_Common_Category_Age_19-24岁", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Emotion_师生关系", "TagId_Common_Category_Character_33300", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "TagId_Common_Category_Language_20121", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_PersonType_舞者", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Tag_未播", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "Tag_Common_Tag_张琳苑", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "TagId_Common_Category_Emotion_33250", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Type_30279", "TagId_Common_Category_ContentSubType_33845", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Type_竞演", "Tag_Common_Category_ContentSubType_未播", "Tag_Common_Category_Character_萝莉", "Tag_Common_Category_PersonType_演员", "Tag_Common_Category_Type_真人秀", "Tag_Common_Category_Character_御姐"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 53
+    }, {
+      "name": "幕后：栾天奕谈与任路瑶的缘分 任路瑶说自己很幸运",
+      "description": "幕后：栾天奕谈与任路瑶的缘分 任路瑶说自己很幸运",
+      "tvId": 4910558508496800,
+      "vid": "7343e70cb3cb83883638eacfc9fd9e76",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_1b70mpkskwc.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 84,
+      "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211023\u002Fa8\u002Fca\u002Fv_163078736_m_601.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211023\u002Fa8\u002Fca\u002Fv_163078736_m_601.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20211023\u002Fa8\u002Fca\u002Fv_163078736_m_601.webp",
+      "firstPublishTime": 1634964613000,
+      "lastPublishTime": 1634981383000,
+      "channelId": 6,
+      "subtitle": "栾天奕谈与任路瑶的缘分 任路瑶说自己很幸运",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "栾天奕与任路瑶的缘分",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "栾天奕谈与任路瑶的缘分",
+      "contentType": 5,
+      "episodeType": 0,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 18,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 2,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 3,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 10, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "33860,30279,2224,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "Tag_Common_Category_Emotion_友情", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_SubjectMatter_33172", "TagId_Common_Category_Age_33147", "Tag_Pps_region_中国_22607", "Tag_Common_Category_Style_甜", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Place_151", "TagId_Common_Category_Type_30279", "TagId_Common_Category_ContentSubType_33845", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Style_励志", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Specification_33310", "Tag_Common_Category_Age_19-24岁", "TagId_Common_Category_SubjectMatter_33176", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Emotion_师生关系", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33300", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "Tag_Common_Category_Type_竞演", "TagId_Common_Category_Language_20121", "Tag_Common_Tag_栾天奕", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_ContentSubType_未播", "Tag_Common_Category_PersonType_舞者", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_Character_萝莉", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Category_PersonType_演员", "Tag_Common_Tag_未播", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "Tag_Common_Category_Type_真人秀", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "Tag_Common_Category_Character_御姐", "TagId_Common_Category_Emotion_33250"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 53
+    }, {
+      "name": "幕后：徐轸轸回忆金晨送的生日惊喜 相信自己会闪闪发光",
+      "description": "幕后：徐轸轸回忆金晨送的生日惊喜 相信自己会闪闪发光",
+      "tvId": 7898626291175800,
+      "vid": "11cb0d77a97626cffc01a456abb7365f",
+      "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_26xia2pxh5g.html",
+      "albumId": 1718740599539801,
+      "videoType": 1,
+      "duration": 68,
+      "imageUrl": "http:\u002F\u002Fpic3.iqiyipic.com\u002Fimage\u002F20211023\u002F5b\u002F31\u002Fv_163078582_m_601.jpg",
+      "imageUrlWebp55": "http:\u002F\u002Fpic3.iqiyipic.com\u002Fimage\u002F20211023\u002F5b\u002F31\u002Fv_163078582_m_601.webp",
+      "imageUrlWebp85": "http:\u002F\u002Fpic3.iqiyipic.com\u002Fimage\u002F20211023\u002F5b\u002F31\u002Fv_163078582_m_601.webp",
+      "firstPublishTime": 1634964605000,
+      "lastPublishTime": 1634981348000,
+      "channelId": 6,
+      "subtitle": "徐轸轸回忆金晨送的生日惊喜 相信自己会闪闪发光",
+      "vip": {"purchaseType": 0, "payMark": 0, "vipType": [0], "payMarkUrl": ""},
+      "downloadAllowed": 1,
+      "userId": 990904073,
+      "period": "20211023",
+      "exclusive": 1,
+      "album": {
+        "id": 1718740599539801,
+        "name": "舞蹈生",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fa_htnwgn3gvp.html",
+        "imageUrl": "http:\u002F\u002Fpic8.iqiyipic.com\u002Fimage\u002F20210922\u002F37\u002F1b\u002Fa_100459328_m_601_m5.jpg",
+        "channelId": 6,
+        "description": "《舞蹈生》是由爱奇艺YOH团队自制的S+级舞蹈竞技成长真人秀，节目聚焦舞蹈专业高校生、舞团舞者群体，以舞蹈生导师作为生态代表，融合舞蹈特色考核机制，通过合宿、排练、特殊课程与竞争、遴选等，24小时全方位纪录，展现舞蹈生从身台形表全面蜕变。展现舞蹈艺术学生及工作者的精神面貌，探索传统舞种与表演、流行、垂直圈层等文化更多元的结合与呈现，并通过她们的视角，引领观众了解中国舞蹈生态。",
+        "videoCount": 0,
+        "firstTvId": 1299207862049600,
+        "latestTvId": 3829238945791300,
+        "isSource": 1,
+        "exclusive": 1,
+        "qiyiProduced": 1,
+        "recommendation": "舞蹈竞技成长真人秀",
+        "isBossMixer": 1,
+        "posterUrl": "",
+        "latestVideo": {
+          "tvId": 3829238945791300,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_12mjx7lhcfc.html",
+          "order": 1
+        },
+        "firstVideo": {
+          "tvId": 1299207862049600,
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fv_dlvs5y78do.html",
+          "order": 1
+        },
+        "effective": 1,
+        "dynamicImageWebp": "",
+        "dynamicImageGif": "",
+        "channel": {
+          "id": 6,
+          "name": "综艺",
+          "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+          "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+          "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+          "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+        },
+        "latestFreeTvId": 2984558308152000,
+        "isFinished": 0,
+        "isInteractive": 0,
+        "briefIntroduction": "聚焦舞蹈专业高校生、舞团舞者群体，展现舞蹈生从身台形表全面蜕变。"
+      },
+      "order": 1,
+      "mode1080p": 1,
+      "effective": 1,
+      "qiyiProduced": 1,
+      "recommendation": "徐轸轸回忆金晨送惊喜",
+      "videoPageStatus": 1,
+      "copyrightStatus": 1,
+      "shortTitle": "徐轸轸回忆金晨送的生日惊喜",
+      "contentType": 5,
+      "episodeType": 0,
+      "topChart": 0,
+      "commentAllowed": 1,
+      "startTime": -1,
+      "endTime": -1,
+      "publicLevel": 0,
+      "featureKeyword": "",
+      "officialEpisodeId": 2984558308152000,
+      "editorInfo": "",
+      "displayCircle": 1,
+      "rewardAllowed": 1,
+      "displayUpDown": 1,
+      "user": {
+        "id": 990904073,
+        "name": "舞蹈生",
+        "avatar": "https:\u002F\u002Fimg7.iqiyipic.com\u002Fpassport\u002F20210802\u002F13\u002F5e\u002Fpassport_990904073_162761489934624_130_130.png",
+        "followerCount": 16546,
+        "profileUrl": "http:\u002F\u002Fwww.iqiyi.com\u002Fu\u002F990904073"
+      },
+      "panorama": {"videoType": 1, "viewAngleX": 0, "viewAngleY": 0, "zoomRate": 1},
+      "circle": {"id": 5885190012511347, "type": 2},
+      "baikeUrl": "",
+      "isPano": 0,
+      "areas": ["内地"],
+      "superAlbumId": 0,
+      "deleted": 0,
+      "isKnowledgePayment": 0,
+      "score": 0,
+      "playControl": [{
+        "playPlatform": 10,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 11,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 13,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 3,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 5,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 2,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 12,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {
+        "playPlatform": 15,
+        "copyrightStatus": 1,
+        "twCopyrightStatus": 1,
+        "rejectShareButton": false
+      }, {"playPlatform": 18, "copyrightStatus": 1, "twCopyrightStatus": 1, "rejectShareButton": false}],
+      "dynamicImageWebp": "",
+      "dynamicImageGif": "",
+      "posterUrl": "",
+      "iresearchCrumb": {"category": "综艺", "albumName": "舞蹈生"},
+      "channel": {
+        "id": 6,
+        "name": "综艺",
+        "logoImage": "http:\u002F\u002Fpic9.iqiyipic.com\u002Fcommon\u002Flego\u002F20150119\u002F2f540993a07a48af951d5587c0f28842.png",
+        "description": "爱奇艺综艺为您提供国内外最新最热门的综艺节目视频。",
+        "url": "http:\u002F\u002Fwww.iqiyi.com\u002Fzongyi\u002F",
+        "ppsUrl": "http:\u002F\u002Fwww.pps.tv\u002Fzongyi\u002F"
+      },
+      "contentRating": 0,
+      "iqiyiCheckResult": 1,
+      "playMode": 1,
+      "itemBrandCateId": "2224,33860,30279,",
+      "cutLimitStatus": 0,
+      "hideGifCut": 0,
+      "isPoliticallySensitive": 0,
+      "sensitivePerson": "",
+      "interactionType": -1,
+      "isEnabledInteraction": 0,
+      "interactionScriptUrl": "",
+      "unlockedBusinessType": -1,
+      "subState": 0,
+      "subCount": 0,
+      "tag": ["Tag_Common_Category_Age_31-35岁", "Tag_Common_Category_SubjectMatter_潮流", "Tag_Common_Category_Language_普通话", "TagId_Common_Category_Emotion_33246", "Tag_Common_Category_Emotion_友情", "Tag_Common_Category_Scene_舞台", "TagId_Common_Category_Age_33148", "TagId_Common_Category_Age_33147", "TagId_Common_Category_SubjectMatter_33172", "Tag_Common_Category_Style_甜", "Tag_Pps_region_中国_22607", "TagId_Common_Category_Age_33146", "TagId_Common_Category_Age_33145", "Tag_Common_Category_Style_萌", "TagId_Common_Category_Place_151", "Tag_Common_Category_Style_文艺", "TagId_Common_Category_Type_2224", "Tag_Common_Category_Style_励志", "TagId_Common_Category_Specification_33310", "TagId_Common_Category_SubjectMatter_33176", "Tag_Common_Category_Age_19-24岁", "Tag_Common_Category_Character_小姐姐", "Tag_Common_Category_Emotion_师生关系", "TagId_Common_Category_Character_33300", "Tag_Common_Category_Age_1-18岁", "Tag_Common_Category_Style_养成", "Tag_Common_Category_PersonType_歌手", "Tag_Common_Category_Place_内地", "Tag_Common_Category_Style_潮", "TagId_Common_Category_Language_20121", "TagId_Common_Category_Style_33242", "TagId_Common_Category_Style_33240", "Tag_Common_Category_PersonType_舞者", "TagId_Common_Category_PersonType_33274", "TagId_Common_Category_PersonType_33273", "TagId_Common_Category_PersonType_33276", "TagId_Common_Category_PersonType_33275", "Tag_Common_Category_SubjectMatter_舞蹈", "TagId_Common_Category_Style_33230", "TagId_Common_Category_Style_33232", "TagId_Common_Category_Style_33237", "Tag_Common_Tag_未播", "Tag_Common_Category_PersonType_爱豆", "TagId_Common_Category_Style_33228", "TagId_Common_Category_Style_33227", "TagId_Common_Category_Style_33226", "TagId_Common_Category_Emotion_33250", "TagId_Common_Category_Type_33860", "Tag_Common_Category_Type_爱奇艺出品", "TagId_Common_Category_Type_30279", "TagId_Common_Category_ContentSubType_33845", "Tag_Pps_type_真人秀_23019", "Tag_Common_Category_Age_25-30岁", "TagId_Common_Category_Scene_33256", "Tag_Common_Category_Style_追星", "Tag_Common_Category_Specification_独播", "TagId_Common_Category_Character_33297", "TagId_Common_Category_Character_33296", "Tag_Common_Category_Style_颜粉", "Tag_Common_Category_Type_竞演", "Tag_Common_Category_ContentSubType_未播", "Tag_Common_Category_Character_萝莉", "Tag_Common_Tag_徐轸轸", "Tag_Common_Category_PersonType_演员", "Tag_Common_Category_Type_真人秀", "Tag_Common_Category_Character_御姐"],
+      "playCount": 0,
+      "customizeContentTypeName": "",
+      "hot": 0,
+      "isSuperCinema": 0,
+      "imageSize": "[{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"jpg60\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp55\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,374_0\",\"imageType\":\"heic90\"},{\"imageSize\":\"110_70,160_90,220_124,284_160,320_180,480_270,180_101,1080_608,720_405,1248_702,832_468,592_333,384_216,180_120,480_360,120_160,180_236,195_260,260_360,440_608,579_772,405_540,318_424,255_340,128_128,1242_1242,400_400,1248_624,580_435,369_656,374_0\",\"imageType\":\"webp85\"}]",
+      "imageProductionType": [0, 1],
+      "partyTemplateUsed": 0,
+      "uploaderId": 53
+    }]
+  }]
+}</script>
+<script src="/client.bundle.js" defer></script>
+<script src="/0.bundle.js" defer></script>
+
+<!--  <script type="text/javascript" src="client.bundle.js"></script>-->
+</body>
+</html>
